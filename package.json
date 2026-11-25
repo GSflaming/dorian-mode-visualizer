@@ -1,0 +1,22 @@
+{
+  "name": "dorian-mode-visualizer",
+  "version": "2.0.0",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "ep01/v1"
+  ],
+  "scripts": {
+    "demo": "npm run demo --workspace ep01/v1",
+    "preview": "npm run preview --workspace ep01/v1 -- --demo",
+    "align": "npm run align --workspace ep01/v1",
+    "audio:prepare": "npm run v2:prepare --workspace ep01/v1",
+    "render": "npm run v2:render --workspace ep01/v1 --",
+    "test": "node --test ep01/tests/*.test.mjs ep01/v1/tests/*.test.mjs",
+    "verify": "npm test && npm run v2:verify --workspace ep01/v1 && npm run demo",
+    "verify:browser": "node ep01/v1/scripts/verify-browser.mjs"
+  }
+}

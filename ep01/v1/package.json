@@ -1,0 +1,27 @@
+{
+  "name": "dorian-ep01",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "score": "node scripts/build-score.mjs",
+    "audio": "node scripts/audio.mjs",
+    "render": "node scripts/render.mjs",
+    "preview": "node scripts/serve.mjs",
+    "align": "node scripts/serve.mjs --align",
+    "v2:prepare": "node scripts/prepare-v2.mjs",
+    "v2:render": "node scripts/render-v2.mjs",
+    "v2:verify": "node scripts/verify-v2.mjs",
+    "part2:build": "node part2/build.mjs",
+    "part2:preview": "node scripts/serve.mjs --part2",
+    "demo": "node part2/demo.mjs"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "0.1.80"
+  },
+  "license": "MIT"
+}

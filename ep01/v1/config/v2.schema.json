@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 2
+    },
+    "fps": {
+      "enum": [
+        30,
+        60
+      ]
+    },
+    "durationMs": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "startMs": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "endMs": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_-]+$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "view": {
+            "enum": [
+              "track_analysis",
+              "theory_anatomy",
+              "compare_ab",
+              "album_map",
+              "case_study"
+            ]
+          },
+          "audioMode": {
+            "enum": [
+              "external_audio",
+              "compare_audio"
+            ]
+          },
+          "audio": {
+            "type": "object",
+            "properties": {
+              "file": {
+                "type": "string",
+                "pattern": "^[^/\\\\:\\x00-\\x1f]+\\.(?:[wW][aA][vV]|[fF][lL][aA][cC])$"
+              },
+              "sourceInMs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "artist": {
+                "type": "string",
+                "minLength": 1
+              },
+              "edition": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "file",
+              "sourceInMs",
+              "title"
+            ],
+            "additionalProperties": false
+          },
+          "harmony": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "startMs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "endMs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "symbol": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "mode": {
+                  "enum": [
+                    "dorian",
+                    "aeolian",
+                    "chromatic",
+                    null
+                  ]
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "startMs",
+                "endMs",
+                "symbol",
+                "mode"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "bars": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "startMs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "endMs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "beatsMs": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                }
+              },
+              "required": [
+                "startMs",
+                "endMs"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "cues": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "startMs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "endMs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "line1": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "line2": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "line2DelayMs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "badge": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "startMs",
+                "endMs",
+                "line1"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "notes": {
+            "type": "array",
+            "maxItems": 0
+          },
+          "anatomy": {
+            "enum": [
+              "gravity",
+              "tritone",
+              "scale",
+              "center"
+            ]
+          },
+          "albumKey": {
+            "enum": [
+              "E",
+              "G",
+              "D",
+              "finale"
+            ]
+          },
+          "study": {
+            "type": "string",
+            "minLength": 1
+          },
+          "excerptId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "leadMs": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "tonic": {
+            "enum": [
+              "D",
+              "E",
+              "G"
+            ]
+          }
+        },
+        "required": [
+          "startMs",
+          "endMs",
+          "id",
+          "title",
+          "view",
+          "audioMode",
+          "harmony",
+          "cues"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "audioMode": {
+              "const": "external_audio"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "audio"
+          ]
+        }
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "fps",
+    "durationMs",
+    "title",
+    "scenes"
+  ],
+  "additionalProperties": false
+}

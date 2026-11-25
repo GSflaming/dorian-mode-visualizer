@@ -1,0 +1,79 @@
+{
+  "title": "为什么小调也能如此明亮？",
+  "fps": 60,
+  "scenes": [
+    {
+      "id": "SC_02",
+      "title": "听觉对照 A",
+      "kind": "compare",
+      "scriptRange": [8, 24],
+      "mode": "aeolian",
+      "bpm": 60,
+      "beatsPerBar": 4,
+      "bars": [
+        {"chord": "Em7", "roman": "i7"},
+        {"chord": "Em7", "roman": "i7"},
+        {"chord": "Am7", "roman": "iv7"},
+        {"chord": "Am7", "roman": "iv7"}
+      ],
+      "cues": [{"at": 0, "lines": [[0, "第一组  Em7 → Am7"], [3, "留意换和弦时第三音的颜色"]]}],
+      "animations": [{"type": "feature", "at": 8, "duration": 0.9}],
+      "transition": {"type": "cut"},
+      "audio": [
+        {"id": "guitar", "file": "audio_02_aeolian_compare.wav", "at": 0, "sourceIn": 0, "gainDb": 0}
+      ]
+    },
+    {
+      "id": "SC_03",
+      "title": "听觉对照 B",
+      "kind": "compare",
+      "scriptRange": [24, 40],
+      "mode": "dorian",
+      "bpm": 60,
+      "beatsPerBar": 4,
+      "bars": [
+        {"chord": "Em7", "roman": "i7"},
+        {"chord": "Em7", "roman": "i7"},
+        {"chord": "A7", "roman": "IV7"},
+        {"chord": "A7", "roman": "IV7"}
+      ],
+      "cues": [{"at": 0, "lines": [[0, "两组用同样的节奏和音色"], [3, "第二组  Em7 → A7"]]}],
+      "animations": [{"type": "feature", "at": 8, "duration": 0.9}],
+      "transition": {"type": "cut"},
+      "audio": [
+        {"id": "guitar", "file": "audio_03_dorian_compare.wav", "at": 0, "sourceIn": 0, "gainDb": 0}
+      ]
+    },
+    {
+      "id": "SC_04",
+      "title": "半音与三全音",
+      "kind": "explain",
+      "scriptRange": [40, 72],
+      "bpm": 60,
+      "beatsPerBar": 4,
+      "bars": [
+        {"chord": "Am7", "roman": "iv7", "mode": "aeolian"},
+        {"chord": "A7", "roman": "IV7", "mode": "dorian"},
+        {"mode": "aeolian"},
+        {"mode": "dorian"},
+        {"chord": "A7", "roman": "IV7", "mode": "dorian"},
+        {"chord": "Em7", "roman": "i7", "mode": "dorian"}
+      ],
+      "cues": [
+        {"at": 0, "view": "voices", "lines": [[0, "两组和弦只改了一个音"], [2.5, "C♮ 升半音  Am7 就变成 A7"]]},
+        {"at": 8, "view": "scales", "lines": [[0, "自然小调的 C♮ 离 B 半音"], [4, "多利亚的 C♯ 离 B 一个全音"]]},
+        {"at": 16, "view": "tritone", "lines": [[0, "A7 的三音和七音相隔六个半音"], [4, "这组教学进行在这里回到 Em7"]]}
+      ],
+      "animations": [
+        {"type": "shift", "at": 4, "duration": 0.7},
+        {"type": "degree", "at": 10, "duration": 1.3},
+        {"type": "degree", "at": 14, "duration": 1.3},
+        {"type": "tritone", "at": 16, "duration": 0.7}
+      ],
+      "transition": {"type": "fade", "duration": 0.22},
+      "audio": [
+        {"id": "guitar", "file": "audio_04_gravity_and_tritone.wav", "at": 0, "sourceIn": 0, "gainDb": 0}
+      ]
+    }
+  ]
+}

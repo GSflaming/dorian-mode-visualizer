@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 2,
+  "title": "Breathe 与多利亚调式",
+  "fps": 30,
+  "durationMs": 24647,
+  "scenes": [
+    {
+      "id": "breathe",
+      "title": "听见小调的自然六级",
+      "view": "track_analysis",
+      "startMs": 0,
+      "endMs": 6447,
+      "audioMode": "external_audio",
+      "harmony": [],
+      "bars": [],
+      "notes": [],
+      "cues": [],
+      "audio": {
+        "file": "Breathe.wav",
+        "sourceInMs": 0,
+        "artist": "Pink Floyd",
+        "title": "Breathe"
+      }
+    },
+    {
+      "id": "sixths",
+      "title": "只移动一个半音",
+      "view": "compare_ab",
+      "startMs": 6447,
+      "endMs": 10447,
+      "audioMode": "compare_audio",
+      "harmony": [
+        {
+          "startMs": 6447,
+          "endMs": 8447,
+          "symbol": "Am7",
+          "mode": "aeolian"
+        },
+        {
+          "startMs": 8447,
+          "endMs": 10447,
+          "symbol": "A7",
+          "mode": "dorian"
+        }
+      ],
+      "bars": [],
+      "notes": [],
+      "cues": []
+    },
+    {
+      "id": "scale",
+      "title": "两个和弦拼出七个音",
+      "view": "theory_anatomy",
+      "startMs": 10447,
+      "endMs": 14647,
+      "audioMode": "compare_audio",
+      "harmony": [
+        {
+          "startMs": 10447,
+          "endMs": 12547,
+          "symbol": "Em9",
+          "mode": "dorian"
+        },
+        {
+          "startMs": 12547,
+          "endMs": 14647,
+          "symbol": "A7",
+          "mode": "dorian"
+        }
+      ],
+      "bars": [],
+      "notes": [],
+      "cues": [
+        {
+          "startMs": 10447,
+          "endMs": 14647,
+          "line1": "Em9 留下五个音",
+          "line2": "A7 补上 A 和 C♯",
+          "line2DelayMs": 2100,
+          "badge": "和弦推导"
+        }
+      ],
+      "anatomy": "scale"
+    },
+    {
+      "id": "map-e",
+      "title": "专辑里的调式中心",
+      "view": "album_map",
+      "startMs": 14647,
+      "endMs": 17147,
+      "audioMode": "external_audio",
+      "harmony": [],
+      "bars": [],
+      "notes": [],
+      "cues": [],
+      "albumKey": "E",
+      "audio": {
+        "file": "Breathe.wav",
+        "sourceInMs": 0,
+        "artist": "Pink Floyd",
+        "title": "Breathe"
+      }
+    },
+    {
+      "id": "map-g",
+      "title": "专辑里的调式中心",
+      "view": "album_map",
+      "startMs": 17147,
+      "endMs": 19647,
+      "audioMode": "external_audio",
+      "harmony": [],
+      "bars": [],
+      "notes": [],
+      "cues": [],
+      "albumKey": "G",
+      "audio": {
+        "file": "Great Gig.flac",
+        "sourceInMs": 0,
+        "artist": "Pink Floyd",
+        "title": "The Great Gig in the Sky"
+      }
+    },
+    {
+      "id": "map-d",
+      "title": "专辑里的调式中心",
+      "view": "album_map",
+      "startMs": 19647,
+      "endMs": 22147,
+      "audioMode": "external_audio",
+      "harmony": [],
+      "bars": [],
+      "notes": [],
+      "cues": [],
+      "albumKey": "D",
+      "audio": {
+        "file": "Any Colour.flac",
+        "sourceInMs": 0,
+        "artist": "Pink Floyd",
+        "title": "Any Colour You Like"
+      }
+    },
+    {
+      "id": "map-finale",
+      "title": "专辑里的调式中心",
+      "view": "album_map",
+      "startMs": 22147,
+      "endMs": 24647,
+      "audioMode": "external_audio",
+      "harmony": [],
+      "bars": [],
+      "notes": [],
+      "cues": [],
+      "albumKey": "finale",
+      "audio": {
+        "file": "Eclipse.wav",
+        "sourceInMs": 0,
+        "artist": "Pink Floyd",
+        "title": "Eclipse"
+      }
+    }
+  ]
+}

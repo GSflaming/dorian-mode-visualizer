@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EP01 · Dorian 视频预览</title>
+<style>
+  :root{font-family:system-ui,sans-serif;color:#18181b;background:#eef0f3}
+  body{margin:0}
+  main{max-width:1380px;margin:auto;padding:16px}
+  canvas{width:100%;height:auto;display:block;background:white;border:1px solid #d6d9e0;box-sizing:border-box}
+  .controls,.track{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+  .controls{margin-top:12px}
+  button,input,select{font:inherit}
+  button,select{border:1px solid #b9c1d1;background:#fff;border-radius:6px;padding:6px 10px;color:inherit}
+  input[type=range]{flex:1 1 240px;min-width:150px;accent-color:#1d4ed8}
+  input[type=number]{width:6em}
+  details{margin-top:18px;background:#fff;padding:12px 16px;border-radius:8px}
+  summary{cursor:pointer;font-weight:600}
+  .track{padding:12px 0;border-bottom:1px solid #e5e7eb}
+  .track input[type=file]{max-width:230px}
+  output,#message{color:#50515c}
+  .track-status{min-width:65px}
+  #time{font-variant-numeric:tabular-nums;min-width:7em}
+</style></head>
+<body>
+<main>
+  <canvas id="stage" width="1920" height="1080" aria-label="EP01 动态指板与乐理画面"></canvas>
+  <div class="controls">
+    <button id="play" disabled>播放</button>
+    <button id="back" aria-label="后退一帧">−1 帧</button>
+    <button id="forward" aria-label="前进一帧">+1 帧</button>
+    <label>场景 <select id="scene"></select></label>
+    <input type="range" id="seek" min="0" value="0" step="1" aria-label="时间轴">
+    <output id="time"></output>
+    <label><input type="checkbox" id="intervals"> 音程度数</label>
+  </div>
+  <details>
+    <summary>实录 WAV、打点与同步校准</summary>
+    <div id="tracks"></div>
+    <p><label>导入实录打点 JSON <input id="notes" type="file" accept=".json,application/json"></label></p>
+    <button id="download">下载校准后的场景配置</button>
+    <p>片段放入秒决定 WAV 从场景的哪一秒开始播。前置裁剪秒跳过预备拍。打点修正秒只移动画面，正值为延后。</p>
+  </details>
+  <p id="message" role="status">正在载入场景和 WAV</p>
+</main>
+<script type="module" src="./preview.mjs"></script>
+</body></html>

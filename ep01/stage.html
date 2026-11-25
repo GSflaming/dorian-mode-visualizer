@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<title>EP01 · 渲染画布</title>
+<style>html,body{margin:0;background:white}canvas{display:block}</style>
+<canvas id="stage" width="1920" height="1080"></canvas>
+<script type="module">
+  import { compile } from './timeline.mjs';
+  import { makeStage } from './stage.mjs';
+  const canvas = document.querySelector('canvas');
+  const render = makeStage(canvas);
+  window.ep01 = {
+    init(project, notes, selected, assets) {
+      const model = compile(project, notes, selected);
+      this.frame = (frame) => render(model, frame / model.fps, assets);
+    },
+    images(start, count) {
+      return Array.from({ length: count }, (_, i) => {
+        this.frame(start + i);
+        return canvas.toDataURL('image/jpeg', .95).split(',')[1];
+      });
+    }
+  };
+</script>

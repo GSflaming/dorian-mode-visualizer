@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 2,
+  "title": "Dorian · 合成夹具演示",
+  "fps": 30,
+  "durationMs": 7038,
+  "scenes": [
+    {
+      "id": "breathe",
+      "title": "听见小调的自然六级",
+      "view": "track_analysis",
+      "startMs": 0,
+      "endMs": 2237,
+      "audioMode": "external_audio",
+      "harmony": [
+        {
+          "startMs": 0,
+          "endMs": 736,
+          "symbol": "Em7",
+          "mode": "dorian"
+        },
+        {
+          "startMs": 736,
+          "endMs": 1489,
+          "symbol": "A7",
+          "mode": "dorian"
+        },
+        {
+          "startMs": 1489,
+          "endMs": 2237,
+          "symbol": "Cmaj7",
+          "mode": "chromatic",
+          "label": "脱离 Dorian"
+        }
+      ],
+      "bars": [],
+      "notes": [],
+      "cues": [
+        {
+          "startMs": 0,
+          "endMs": 2237,
+          "line1": "听 A7 的三音 C♯",
+          "line2": "进入 Cmaj7 时留意 C♮",
+          "line2DelayMs": 1240
+        }
+      ],
+      "audio": {
+        "file": "fixture.wav",
+        "sourceInMs": 137,
+        "artist": "测试夹具",
+        "title": "Em7 / A7 / Cmaj7"
+      }
+    },
+    {
+      "id": "sixths",
+      "title": "只移动一个半音",
+      "view": "compare_ab",
+      "startMs": 2237,
+      "endMs": 4037,
+      "audioMode": "compare_audio",
+      "harmony": [
+        {
+          "startMs": 2237,
+          "endMs": 3137,
+          "symbol": "Am7",
+          "mode": "aeolian"
+        },
+        {
+          "startMs": 3137,
+          "endMs": 4037,
+          "symbol": "A7",
+          "mode": "dorian"
+        }
+      ],
+      "bars": [],
+      "notes": [],
+      "cues": []
+    },
+    {
+      "id": "scale",
+      "title": "两个和弦拼出七个音",
+      "view": "theory_anatomy",
+      "startMs": 4037,
+      "endMs": 5837,
+      "audioMode": "compare_audio",
+      "harmony": [
+        {
+          "startMs": 4037,
+          "endMs": 4937,
+          "symbol": "Em9",
+          "mode": "dorian"
+        },
+        {
+          "startMs": 4937,
+          "endMs": 5837,
+          "symbol": "A7",
+          "mode": "dorian"
+        }
+      ],
+      "bars": [],
+      "notes": [],
+      "cues": [
+        {
+          "startMs": 4037,
+          "endMs": 5837,
+          "line1": "Em9 留下五个音",
+          "line2": "A7 补上 A 和 C♯",
+          "line2DelayMs": 900,
+          "badge": "和弦推导"
+        }
+      ],
+      "anatomy": "scale"
+    },
+    {
+      "id": "map-e",
+      "title": "专辑里的调式中心",
+      "view": "album_map",
+      "startMs": 5837,
+      "endMs": 7038,
+      "audioMode": "external_audio",
+      "harmony": [],
+      "bars": [],
+      "notes": [],
+      "cues": [],
+      "albumKey": "E",
+      "audio": {
+        "file": "fixture.wav",
+        "sourceInMs": 137,
+        "artist": "测试夹具",
+        "title": "Em7 / A7 / Cmaj7"
+      }
+    }
+  ]
+}

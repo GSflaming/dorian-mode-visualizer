@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dorian V1 音画预览</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#19263b;background:#f3f5f9}
+body{margin:0}
+main{max-width:1360px;margin:auto;padding:16px}
+canvas{display:block;width:100%;height:auto;background:#f7f8fb;border:1px solid #dce3ed;box-sizing:border-box}
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin:14px 0;color:#33445e}
+audio{width:min(100%,530px);height:42px}
+button,select{font:inherit;color:inherit}
+select{border:1px solid #b8c6d9;border-radius:6px;background:white;padding:.35rem .45rem}
+fieldset{border:1px solid #dce3ed;border-radius:8px;padding:8px 14px;margin:12px 0;display:flex;gap:9px 20px;flex-wrap:wrap}
+input{accent-color:#285aca}
+a{color:#285aca}
+</style>
+</head>
+<body>
+<main>
+ <canvas id="stage" width="1920" height="1080" aria-label="多轨指板和键盘同步画面"></canvas>
+ <div class="controls">
+  <audio id="audio" controls preload="metadata" src="./output/Dorian-V1-mix.wav"></audio>
+  <label>听取 <select id="audioSource">
+    <option value="Dorian-V1-mix.wav">完整混音</option>
+    <option value="stems/guitar.flac">电吉他</option>
+    <option value="stems/synth.flac">合成器</option>
+    <option value="stems/bass.flac">电贝斯</option>
+    <option value="stems/drums.flac">鼓</option>
+  </select></label>
+  <label>场景 <select id="scene"></select></label>
+  <a href="./output/Dorian-V1.mp4">打开成片</a>
+ </div>
+ <fieldset id="visibility"><legend>画面声部</legend>
+  <label><input type="checkbox" name="guitar" checked> 电吉他</label>
+  <label><input type="checkbox" name="keys" checked> 键盘</label>
+  <label><input type="checkbox" name="pad" checked> 铺底</label>
+  <label><input type="checkbox" name="poly" checked> 合成器琶音</label>
+  <label><input type="checkbox" name="lead" checked> 合成器主奏</label>
+  <label><input type="checkbox" name="bass" checked> 电贝斯</label>
+  <label><input type="checkbox" name="drums" checked> 鼓</label>
+ </fieldset>
+ <output id="status" role="status"></output>
+</main>
+<script type="module" src="./preview.mjs"></script>
+</body>
+</html>

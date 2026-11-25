@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "title": "My listening study",
+  "fps": 30,
+  "durationMs": 3200,
+  "scenes": [
+    {
+      "id": "my-excerpt",
+      "title": "My excerpt",
+      "view": "track_analysis",
+      "startMs": 0,
+      "endMs": 3200,
+      "audioMode": "external_audio",
+      "audio": {
+        "file": "my-track.wav",
+        "sourceInMs": 0,
+        "title": "My recording"
+      },
+      "harmony": [],
+      "bars": [],
+      "notes": [],
+      "cues": []
+    }
+  ]
+}
