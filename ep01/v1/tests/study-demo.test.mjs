@@ -4,6 +4,7 @@ import { createCanvas } from '@napi-rs/canvas';
 import { studyDemo, synthStudy } from '../../../examples/study-demo.mjs';
 import { createV2Stage } from '../v2-stage.mjs';
 import { analyze } from '../v2/dsp.mjs';
+import { parseChord, pc } from '../vendor/dream-theater/theory.mjs';
 import { lessons, songs, tuning } from '../part2/lesson.mjs';
 
 test('the local case-study timeline preserves eight excerpts and their source anchors', () => {
@@ -20,6 +21,14 @@ test('the local case-study timeline preserves eight excerpts and their source an
 
 test('the synthetic fret attacks share the audio clock, and A7 exposes C-sharp', () => {
   const { model, events } = studyDemo();
+  for (const scene of model.scenes) {
+    for (const chord of scene.harmony) {
+      const played = events.filter((event) => event.excerptId === scene.excerptId &&
+        event.part === 'piano' && event.startMs === chord.startMs - scene.startMs);
+      assert.deepEqual(new Set(played.map((note) => pc(note.midi))),
+        new Set(parseChord(chord.symbol).tones.map((tone) => tone.pc)), chord.symbol);
+    }
+  }
   const scene = model.scenes[0];
   const local = events.filter((event) => event.excerptId === scene.excerptId);
   const time = 2000; // The second chord's guitar attack.

@@ -1,7 +1,7 @@
 // Original chord voicings and isolated teaching notes. No song events are sampled.
 const keys = [
-  { tonic: 'E', chords: ['Em7', 'A7', 'Cmaj7'], voicings: [[52, 55, 59, 62], [45, 55, 61, 64], [48, 55, 59, 60]], guitar: [62, 61, 60] },
-  { tonic: 'D', chords: ['Dm7', 'G7', 'Bbmaj7'], voicings: [[50, 53, 57, 60], [43, 53, 59, 62], [46, 53, 57, 58]], guitar: [60, 59, 58] },
+  { tonic: 'E', chords: ['Em7', 'A7', 'Cmaj7'], voicings: [[52, 55, 59, 62], [45, 55, 61, 64], [48, 55, 59, 64]], guitar: [62, 61, 60] },
+  { tonic: 'D', chords: ['Dm7', 'G7', 'Bbmaj7'], voicings: [[50, 53, 57, 60], [43, 53, 59, 62], [46, 53, 57, 62]], guitar: [60, 59, 58] },
   { tonic: 'G', chords: ['Gm7', 'C9'], voicings: [[43, 65, 67, 70, 74], [48, 64, 67, 70, 74]] },
 ];
 

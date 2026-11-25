@@ -61,11 +61,15 @@ flowchart LR
     Local --> Prepare["V2 prepare: FFmpeg decode, sample trim and mix"]
     Config --> Prepare
     Synthetic --> Prepare
+    Local --> Part2["Part 2: edition-specific cuts and crossfades"]
+    Part2 --> Master
+    Study["Local Part 2 performance events"] --> Features
     Prepare --> Master["48 kHz stereo master"]
     Master --> DSP["FFT analysis at output frame times"]
     DSP --> Features["Waveform, RMS, band energy and chroma"]
     Demo --> Features
     Prepare --> Manifest["SHA-256 build manifest"]
+    Part2 --> Manifest
     Master --> Browser["Browser preview: audio.currentTime"]
     Features --> Canvas["Shared Stage: Canvas fretboard, keys and theory panels"]
     Config --> Canvas

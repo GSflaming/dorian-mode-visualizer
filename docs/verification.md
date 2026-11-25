@@ -1,6 +1,6 @@
 # Release verification
 
-Run on 2026-11-25 in a fresh source-only directory on macOS 26.6.2 (arm64) with Node 24.18.0, npm 11.16.0, Chrome 158.0.8127.88, and FFmpeg/FFprobe 9.0.2. The install used a new npm cache and no copied dependencies or media.
+Run on 2026-11-25 in a fresh source-only directory on macOS 26.6.2 (arm64) with Node 24.18.0, npm 11.16.0, Chrome 158.0.8127.88, and FFmpeg/FFprobe 9.0.2. The install used a new npm cache and no copied dependencies or media. The install, test, browser and video checks were also repeated from a fresh GitHub clone.
 
 | Check | Observed result |
 | --- | --- |
@@ -11,6 +11,8 @@ Run on 2026-11-25 in a fresh source-only directory on macOS 26.6.2 (arm64) with 
 | `npm run render -- --study-demo` | Full synthetic program exported and decoded without errors. FFprobe reported 384 video frames at 30 fps, with both streams starting at zero and running for 12.800 seconds. |
 
 The synchronization tests also check a sampled impulse to the exact 48 kHz trim/placement position, distinguish C♮ from C♯ in the chromagram, and compare fretboard and keyboard pixels around a synthesized note attack. The original production workspace passed its 18 timeline, score and analysis tests with local data. The original V1 media verifier measured 5,850 video frames over 195 seconds and reported zero millisecond offsets at its five sampled AAC checkpoints.
+
+The eight-scene Part 2 workflow was exercised in a separate local checkout using the production workspace's local inputs. The full output decoded successfully. FFprobe recorded 17,100 frames at 60 fps and both the video and stereo AAC starting at zero with a duration of 285.000 seconds. The retained public verification record includes only the measurements.
 
 ## Verify the exported demo
 
